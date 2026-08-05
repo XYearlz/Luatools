@@ -1,250 +1,401 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LuaTools</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>LuaTools | Free Games & DLCs</title>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI,Arial,sans-serif;
-}
+    <meta name="description" content="LuaTools - Free Games & DLCs">
 
-body{
-background:#0c0818;
-color:white;
-overflow-x:hidden;
-}
+    <link rel="icon" href="favicon.ico">
 
-body::before{
-content:"";
-position:fixed;
-width:200%;
-height:200%;
-background:
-radial-gradient(circle,#9f4dff33 1px,transparent 1px);
-background-size:40px 40px;
-animation:move 15s linear infinite;
-z-index:-1;
-}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-@keyframes move{
-from{transform:translate(0,0);}
-to{transform:translate(-40px,-40px);}
-}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-.topbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:20px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-backdrop-filter:blur(10px);
-background:rgba(0,0,0,.25);
-z-index:100;
-}
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-.logo{
-font-size:30px;
-font-weight:bold;
-color:#b56cff;
-}
+    <!-- AOS -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-.creator{
-font-size:18px;
-color:#ddd;
-}
-
-header{
-text-align:center;
-padding-top:120px;
-}
-
-header img{
-width:90%;
-max-width:800px;
-border-radius:20px;
-box-shadow:0 0 40px #8f3cff;
-}
-
-h1{
-font-size:70px;
-margin-top:30px;
-color:#c48cff;
-text-shadow:0 0 20px #9f4dff;
-}
-
-.subtitle{
-font-size:22px;
-color:#ddd;
-margin-top:10px;
-}
-
-.download{
-
-display:inline-block;
-margin-top:40px;
-padding:20px 55px;
-font-size:24px;
-font-weight:bold;
-text-decoration:none;
-color:white;
-
-border-radius:15px;
-
-background:linear-gradient(90deg,#6f00ff,#b400ff,#6f00ff);
-background-size:200%;
-
-animation:gradient 4s linear infinite;
-
-box-shadow:0 0 30px #8f3cff;
-
-transition:.3s;
-
-}
-
-.download:hover{
-
-transform:scale(1.08);
-
-box-shadow:0 0 60px #b400ff;
-
-}
-
-@keyframes gradient{
-
-0%{background-position:0%;}
-
-100%{background-position:200%;}
-
-}
-
-.container{
-
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:80px 0;
-
-}
-
-.card{
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:20px;
-
-padding:35px;
-
-backdrop-filter:blur(10px);
-
-box-shadow:0 0 25px rgba(143,60,255,.3);
-
-}
-
-.card h2{
-
-margin-bottom:20px;
-
-color:#b56cff;
-
-}
-
-.guide li{
-
-margin:15px 0;
-
-font-size:18px;
-
-color:#ddd;
-
-}
-
-footer{
-
-text-align:center;
-
-padding:30px;
-
-color:#999;
-
-margin-top:40px;
-
-}
-
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="topbar">
+<div id="particles"></div>
 
-<div class="logo">LuaTools</div>
+<div id="cursor"></div>
 
-<div class="creator">Created by <b>XYearlZ</b></div>
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="logo">
+
+<i class="fa-solid fa-gamepad"></i>
+
+<span>LuaTools</span>
 
 </div>
 
-<header>
+<ul>
 
-<img src="banner.png">
+<li><a href="#home">Home</a></li>
 
-<h1>LuaTools</h1>
+<li><a href="#guide">Guide</a></li>
 
-<p class="subtitle">Free Games & DLCs</p>
+<li><a href="#gallery">Gallery</a></li>
 
-<a class="download"
-
-href="https://release-assets.githubusercontent.com/github-production-release-asset/1036447509/2f09cad5-d171-42c4-a019-1c9748f14ac8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-05T16%3A11%3A04Z&rscd=attachment%3B%20filename%3DLuaTools-win-Setup.exe&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-05T15%3A10%3A31Z&ske=2026-08-05T16%3A11%3A04Z&sks=b&skv=2018-11-09&sig=krkXwHqyB%2B7grBCaJuiLDj67n7zhIJhBLpD1Q99c9%2B8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
-
-target="_blank">
-
-⬇ Download
-
-</a>
-
-</header>
-
-<div class="container">
-
-<div class="card">
-
-<h2>📖 Guide</h2>
-
-<ul class="guide">
-
-<li>⬇ Download LuaTools.</li>
-
-<li>📦 Open the installer.</li>
-
-<li>⚙ Follow the installation steps.</li>
-
-<li>🚀 Launch LuaTools.</li>
-
-<li>🎮 Enjoy your games.</li>
+<li><a href="#faq">FAQ</a></li>
 
 </ul>
 
+<div class="creator">
+
+Created by <b>XYearlZ</b>
+
+</div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content" data-aos="fade-right">
+
+<span class="badge">
+
+Latest Release
+
+</span>
+
+<h1>
+
+LuaTools
+
+</h1>
+
+<p>
+
+Download Free Games & DLCs with an elegant and modern interface.
+
+</p>
+
+<div class="buttons">
+
+<a class="download"
+
+href="TU ENLACE DE DESCARGA"
+
+target="_blank">
+
+<i class="fa-solid fa-download"></i>
+
+Download
+
+</a>
+
+<a class="discord"
+
+href="#">
+
+<i class="fa-brands fa-discord"></i>
+
+Discord
+
+</a>
+
+</div>
+
+<div class="stats">
+
+<div>
+
+<h2 id="downloads">
+
+0
+
+</h2>
+
+<p>Downloads</p>
+
+</div>
+
+<div>
+
+<h2>
+
+v1.0.0
+
+</h2>
+
+<p>Version</p>
+
+</div>
+
+<div>
+
+<h2>
+
+2026
+
+</h2>
+
+<p>Updated</p>
+
 </div>
 
 </div>
+
+</div>
+
+<div class="hero-image" data-aos="fade-left">
+
+<img src="banner.png">
+
+</div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+<div class="feature" data-aos="zoom-in">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3>Fast</h3>
+
+<p>Optimized for speed.</p>
+
+</div>
+
+<div class="feature" data-aos="zoom-in">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>Secure</h3>
+
+<p>Protected downloads.</p>
+
+</div>
+
+<div class="feature" data-aos="zoom-in">
+
+<i class="fa-solid fa-rotate"></i>
+
+<h3>Updated</h3>
+
+<p>Always improving.</p>
+
+</div>
+
+<div class="feature" data-aos="zoom-in">
+
+<i class="fa-solid fa-gamepad"></i>
+
+<h3>Easy</h3>
+
+<p>Simple interface.</p>
+
+</div>
+
+</section>
+
+<!-- ================= GUIDE ================= -->
+
+<section id="guide">
+
+<h2 data-aos="fade-up">
+
+Installation Guide
+
+</h2>
+
+<div class="guide">
+
+<div class="step">
+
+<span>1</span>
+
+<h3>Download</h3>
+
+<p>Download LuaTools.</p>
+
+</div>
+
+<div class="step">
+
+<span>2</span>
+
+<h3>Install</h3>
+
+<p>Run the installer.</p>
+
+</div>
+
+<div class="step">
+
+<span>3</span>
+
+<h3>Launch</h3>
+
+<p>Open LuaTools.</p>
+
+</div>
+
+<div class="step">
+
+<span>4</span>
+
+<h3>Enjoy</h3>
+
+<p>Start using it.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+<h2 data-aos="fade-up">
+
+Screenshots
+
+</h2>
+
+<div class="gallery">
+
+<img src="screenshot1.png">
+
+<img src="screenshot2.png">
+
+<img src="screenshot3.png">
+
+</div>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section id="faq">
+
+<h2 data-aos="fade-up">
+
+Frequently Asked Questions
+
+</h2>
+
+<div class="faq">
+
+<div class="question">
+
+<button>
+
+Is LuaTools free?
+
+</button>
+
+<div>
+
+Yes.
+
+</div>
+
+</div>
+
+<div class="question">
+
+<button>
+
+How do I update?
+
+</button>
+
+<div>
+
+Download the latest version.
+
+</div>
+
+</div>
+
+<div class="question">
+
+<button>
+
+Is it safe?
+
+</button>
+
+<div>
+
+Yes.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
+<div>
+
+LuaTools
+
+</div>
+
+<div>
+
+<a href="https://github.com/XYearlz/Luatools">
+
+<i class="fab fa-github"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-discord"></i>
+
+</a>
+
+</div>
+
+<p>
+
 © 2026 LuaTools • Created by XYearlZ
 
+</p>
+
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 
