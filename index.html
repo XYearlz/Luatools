@@ -3,93 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LuaTools</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Arial,sans-serif;
 }
 
 body{
-    background:#0f0f1b;
-    color:white;
-    text-align:center;
+background:#0c0818;
+color:white;
+overflow-x:hidden;
 }
 
-header{
-    padding:40px 20px;
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:
+radial-gradient(circle,#9f4dff33 1px,transparent 1px);
+background-size:40px 40px;
+animation:move 15s linear infinite;
+z-index:-1;
+}
+
+@keyframes move{
+from{transform:translate(0,0);}
+to{transform:translate(-40px,-40px);}
+}
+
+.topbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,.25);
+z-index:100;
 }
 
 .logo{
-    width:90%;
-    max-width:700px;
-    border-radius:15px;
-    box-shadow:0 0 25px #8a2be2;
+font-size:30px;
+font-weight:bold;
+color:#b56cff;
+}
+
+.creator{
+font-size:18px;
+color:#ddd;
+}
+
+header{
+text-align:center;
+padding-top:120px;
+}
+
+header img{
+width:90%;
+max-width:800px;
+border-radius:20px;
+box-shadow:0 0 40px #8f3cff;
 }
 
 h1{
-    font-size:55px;
-    margin-top:25px;
-    color:#b56cff;
+font-size:70px;
+margin-top:30px;
+color:#c48cff;
+text-shadow:0 0 20px #9f4dff;
 }
 
-p{
-    font-size:22px;
-    color:#ddd;
-    margin:20px;
+.subtitle{
+font-size:22px;
+color:#ddd;
+margin-top:10px;
 }
 
 .download{
-    display:inline-block;
-    margin-top:25px;
-    padding:18px 45px;
-    font-size:24px;
-    font-weight:bold;
-    text-decoration:none;
-    color:white;
-    background:linear-gradient(90deg,#8a2be2,#b400ff);
-    border-radius:12px;
-    transition:.3s;
-    box-shadow:0 0 20px #8a2be2;
+
+display:inline-block;
+margin-top:40px;
+padding:20px 55px;
+font-size:24px;
+font-weight:bold;
+text-decoration:none;
+color:white;
+
+border-radius:15px;
+
+background:linear-gradient(90deg,#6f00ff,#b400ff,#6f00ff);
+background-size:200%;
+
+animation:gradient 4s linear infinite;
+
+box-shadow:0 0 30px #8f3cff;
+
+transition:.3s;
+
 }
 
 .download:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 35px #b400ff;
+
+transform:scale(1.08);
+
+box-shadow:0 0 60px #b400ff;
+
+}
+
+@keyframes gradient{
+
+0%{background-position:0%;}
+
+100%{background-position:200%;}
+
+}
+
+.container{
+
+width:90%;
+max-width:1100px;
+margin:auto;
+padding:80px 0;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:20px;
+
+padding:35px;
+
+backdrop-filter:blur(10px);
+
+box-shadow:0 0 25px rgba(143,60,255,.3);
+
+}
+
+.card h2{
+
+margin-bottom:20px;
+
+color:#b56cff;
+
+}
+
+.guide li{
+
+margin:15px 0;
+
+font-size:18px;
+
+color:#ddd;
+
 }
 
 footer{
-    margin-top:80px;
-    padding:20px;
-    color:#888;
+
+text-align:center;
+
+padding:30px;
+
+color:#999;
+
+margin-top:40px;
+
 }
+
 </style>
 
 </head>
+
 <body>
+
+<div class="topbar">
+
+<div class="logo">LuaTools</div>
+
+<div class="creator">Created by <b>XYearlZ</b></div>
+
+</div>
 
 <header>
 
-<img src="banner.png" class="logo" alt="LuaTools">
+<img src="banner.png">
 
 <h1>LuaTools</h1>
 
-<p>Free Games and DLCs</p>
+<p class="subtitle">Free Games & DLCs</p>
 
 <a class="download"
-href="https://release-assets.githubusercontent.com/github-production-release-asset/1036447509/2f09cad5-d171-42c4-a019-1c9748f14ac8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-05T16%3A11%3A04Z&rscd=attachment%3B+filename%3DLuaTools-win-Setup.exe&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-05T15%3A10%3A31Z&ske=2026-08-05T16%3A11%3A04Z&sks=b&skv=2018-11-09&sig=krkXwHqyB%2B7grBCaJuiLDj67n7zhIJhBLpD1Q99c9%2B8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTk0NDczMCwibmJmIjoxNzg1OTQyOTMwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ._j6xgd6k3VX4QHM4Pe0JrOWRF0z-Bk4xpg3B_1aWlDM&response-content-disposition=attachment%3B%20filename%3DLuaTools-win-Setup.exe&response-content-type=application%2Foctet-stream"
+
+href="https://release-assets.githubusercontent.com/github-production-release-asset/1036447509/2f09cad5-d171-42c4-a019-1c9748f14ac8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-05T16%3A11%3A04Z&rscd=attachment%3B%20filename%3DLuaTools-win-Setup.exe&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-05T15%3A10%3A31Z&ske=2026-08-05T16%3A11%3A04Z&sks=b&skv=2018-11-09&sig=krkXwHqyB%2B7grBCaJuiLDj67n7zhIJhBLpD1Q99c9%2B8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+
 target="_blank">
+
 ⬇ Download
+
 </a>
 
 </header>
 
+<div class="container">
+
+<div class="card">
+
+<h2>📖 Guide</h2>
+
+<ul class="guide">
+
+<li>⬇ Download LuaTools.</li>
+
+<li>📦 Open the installer.</li>
+
+<li>⚙ Follow the installation steps.</li>
+
+<li>🚀 Launch LuaTools.</li>
+
+<li>🎮 Enjoy your games.</li>
+
+</ul>
+
+</div>
+
+</div>
+
 <footer>
-© 2026 LuaTools
+
+© 2026 LuaTools • Created by XYearlZ
+
 </footer>
 
 </body>
+
 </html>
